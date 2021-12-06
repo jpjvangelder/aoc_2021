@@ -1,7 +1,7 @@
 package com.aoc2021.day1;
 
 import com.aoc2021.util.Constants;
-import com.aoc2021.util.FileUtil;
+import com.aoc2021.util.ListUtil;
 
 import java.util.List;
 
@@ -12,13 +12,13 @@ public class Day1 {
     private int currentValue;
 
     public Day1() {
-        integers = FileUtil.getIntegerListFromFile(Constants.DAY_1);
+        integers = ListUtil.getIntegerListFromFile(Constants.DAY_1);
         totalDeeperValues = 0;
         previousValue = 0;
         currentValue = 0;
     }
 
-    public int getTotalDeeperValues() {
+    public int part1() {
         resetValues();
 
         for (int i = 0; i < integers.size(); i++) {
@@ -32,7 +32,7 @@ public class Day1 {
         return totalDeeperValues;
     }
 
-    public int getTotalDeeperValuesMeasurementSlidingWindow(int measurementWindow) {
+    public int part2(int measurementWindow) {
         resetValues();
 
         for (int i = 0; i < integers.size(); i++) {

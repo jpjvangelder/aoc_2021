@@ -1,25 +1,24 @@
 package com.aoc2021.day2;
 
 import com.aoc2021.util.Constants;
-import com.aoc2021.util.FileUtil;
+import com.aoc2021.util.ListUtil;
 
 import java.util.List;
 
 public class Day2 {
-    List<String> testValues = List.of("forward 5", "down 5", "forward 8", "up 3", "down 8", "forward 2");
     private final List<PositionUnits> mapFromFile;
     private int horizontalPostition;
     private int depth;
     private int aim;
 
     public Day2() {
-        mapFromFile = FileUtil.getMapFromFile(Constants.DAY_2);
+        mapFromFile = ListUtil.getPositionUnitsFromFile(Constants.DAY_2);
         horizontalPostition = 0;
         depth = 0;
         aim = 0;
     }
 
-    public int calculatePlannedCourse() {
+    public int part1() {
         resetValues();
 
         mapFromFile.forEach(positionUnits -> {
@@ -33,7 +32,7 @@ public class Day2 {
         return horizontalPostition * depth;
     }
 
-    public int calculatePlannedCourseExpanded() {
+    public int part2() {
         resetValues();
 
         mapFromFile.forEach(positionUnits -> {
